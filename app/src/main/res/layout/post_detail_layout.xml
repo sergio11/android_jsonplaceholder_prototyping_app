@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:background="@color/colorAppBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Post Detail Content -->
+    <include
+        android:id="@+id/contentView"
+        android:visibility="gone"
+        layout="@layout/post_detail_content_layout" />
+
+    <!-- Loading View -->
+    <include
+        android:id="@+id/loadingView"
+        android:visibility="visible"
+        layout="@layout/posts_fragment_loading_layout"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

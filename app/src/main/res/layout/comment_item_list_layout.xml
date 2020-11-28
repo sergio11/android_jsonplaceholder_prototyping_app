@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sanchez.sanchez.sergio.postsapp.ui.core.component.MaterialListItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/common_padding"
+    app:valueText="@string/post_default_no_value"
+    app:labelText="@string/post_author_name_label" />
+

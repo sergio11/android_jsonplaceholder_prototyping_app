@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Material List Item  -->
+    <declare-styleable name="MaterialListItem">
+        <attr name="labelText" format="reference"/>
+        <attr name="valueText" format="reference"/>
+        <attr name="helpText" format="reference"/>
+        <attr name="actionText" format="reference"/>
+    </declare-styleable>
+
+</resources>

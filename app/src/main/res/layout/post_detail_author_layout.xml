@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="@dimen/common_margin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/postAuthorTitleTextView"
+            style="@style/TextAppearance.App.Headline6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:textAlignment="textStart"
+            android:text="@string/post_author_title"
+            android:padding="@dimen/common_padding"
+            android:layout_marginTop="@dimen/common_margin"
+            android:layout_marginBottom="@dimen/common_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postAuthorNameListItem"
+            tools:text="Post Author Title"
+            tools:ignore="RtlSymmetry" />
+
+        <sanchez.sanchez.sergio.postsapp.ui.core.component.MaterialListItem
+            android:id="@+id/postAuthorNameListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding"
+            app:valueText="@string/post_default_no_value"
+            app:labelText="@string/post_author_name_label"
+            app:layout_constraintTop_toBottomOf="@id/postAuthorTitleTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postAuthorUsernameListItem"/>
+
+        <sanchez.sanchez.sergio.postsapp.ui.core.component.MaterialListItem
+            android:id="@+id/postAuthorUsernameListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding"
+            app:valueText="@string/post_default_no_value"
+            app:labelText="@string/post_author_username_label"
+            app:layout_constraintTop_toBottomOf="@id/postAuthorNameListItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postAuthorAddressListItem"/>
+
+        <sanchez.sanchez.sergio.postsapp.ui.core.component.MaterialListItem
+            android:id="@+id/postAuthorAddressListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding"
+            app:valueText="@string/post_default_no_value"
+            app:labelText="@string/post_author_address_label"
+            app:layout_constraintTop_toBottomOf="@id/postAuthorUsernameListItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postAuthorCompanyListItem"/>
+
+        <sanchez.sanchez.sergio.postsapp.ui.core.component.MaterialListItem
+            android:id="@+id/postAuthorCompanyListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding"
+            app:valueText="@string/post_default_no_value"
+            app:labelText="@string/post_author_company_label"
+            app:layout_constraintTop_toBottomOf="@id/postAuthorAddressListItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postAuthorEmailListItem"/>
+
+        <sanchez.sanchez.sergio.postsapp.ui.core.component.MaterialListItem
+            android:id="@+id/postAuthorEmailListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding"
+            app:valueText="@string/post_default_no_value"
+            app:labelText="@string/post_author_email_label"
+            app:layout_constraintTop_toBottomOf="@id/postAuthorCompanyListItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postAuthorPhoneListItem"/>
+
+        <sanchez.sanchez.sergio.postsapp.ui.core.component.MaterialListItem
+            android:id="@+id/postAuthorPhoneListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding"
+            app:valueText="@string/post_default_no_value"
+            app:labelText="@string/post_author_phone_label"
+            app:layout_constraintTop_toBottomOf="@id/postAuthorEmailListItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/postAuthorWebsiteListItem"/>
+
+        <sanchez.sanchez.sergio.postsapp.ui.core.component.MaterialListItem
+            android:id="@+id/postAuthorWebsiteListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_padding"
+            app:valueText="@string/post_default_no_value"
+            app:labelText="@string/post_author_website_label"
+            app:layout_constraintTop_toBottomOf="@id/postAuthorPhoneListItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/mapContainer"/>
+
+        <!-- Map Container -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mapContainer"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="@dimen/common_margin"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/postAuthorWebsiteListItem"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">AndroidPostsApp</string>
+    <string name="post_list_title">All Posts</string>
+    <string name="post_detail_error">An error occurred while retrieving the post detail</string>
+    <string name="loading_posts_message">Loading, please wait …</string>
+    <string name="error_occurred_message">An error occurred while retrieving posts</string>
+    <string name="post_detail_error_accept_button">Accept</string>
+    <string name="post_body_label">Description</string>
+    <string name="post_body_default_value">No Description</string>
+    <string name="post_default_no_value">No Value</string>
+    <!-- Author -->
+    <string name="post_author_title">Author</string>
+    <string name="post_author_name_label">Name</string>
+    <string name="post_author_username_label">Username</string>
+    <string name="post_author_address_label">Address</string>
+    <string name="post_author_company_label">Company</string>
+    <string name="post_author_email_label">Email</string>
+    <string name="post_author_phone_label">Phone</string>
+    <string name="post_author_website_label">Website</string>
+    <!-- Post Comments -->
+    <string name="post_comments_title">Comments</string>
+
+
+</resources>
