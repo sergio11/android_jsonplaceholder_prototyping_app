@@ -2,7 +2,7 @@
 
 ## Main Goals
 
-* Clean architecure approach.
+* Clean architecture approach.
 * Dependency injection through Dagger.
 * Asynchronous operations management with coroutines.
 * Using Material Design guidelines.
