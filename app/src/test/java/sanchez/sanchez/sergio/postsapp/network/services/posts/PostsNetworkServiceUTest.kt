@@ -34,7 +34,7 @@ class PostsNetworkServiceUTest {
             mockServer.enqueue(
                 MockResponse().apply {
                     status = "HTTP/1.1 200 OK"
-                    setBody(getJson("json/network/posts/test_network_001_all_posts_retrieved_has_id.json"))
+                    setBody(getJson("json/network/services/posts/test_network_001_all_posts_retrieved_has_id.json"))
                 })
 
             val posts = postsService.getPosts()
@@ -52,7 +52,7 @@ class PostsNetworkServiceUTest {
             mockServer.enqueue(
                 MockResponse().apply {
                     status = "HTTP/1.1 200 OK"
-                    setBody(getJson("json/network/posts/test_network_002_all_posts_retrieved_has_title_and_body.json"))
+                    setBody(getJson("json/network/services/posts/test_network_002_all_posts_retrieved_has_title_and_body.json"))
                 })
 
             val posts = postsService.getPosts()
@@ -73,7 +73,7 @@ class PostsNetworkServiceUTest {
             mockServer.enqueue(
                 MockResponse().apply {
                     status = "HTTP/1.1 200 OK"
-                    setBody(getJson("json/network/posts/test_network_003_can_get_post_detail_by_id.json"))
+                    setBody(getJson("json/network/services/posts/test_network_003_can_get_post_detail_by_id.json"))
                 })
 
             val postId = 1L
@@ -89,7 +89,7 @@ class PostsNetworkServiceUTest {
      */
 
     /**
-     * Helper function which will loadByDate JSON from
+     * Helper function which will load a JSON from
      * the path specified
      *
      * @param path : Path of JSON file

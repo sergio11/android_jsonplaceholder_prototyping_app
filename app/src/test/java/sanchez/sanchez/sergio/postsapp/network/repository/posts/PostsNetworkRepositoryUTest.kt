@@ -1,4 +1,4 @@
-package sanchez.sanchez.sergio.postsapp.network.posts
+package sanchez.sanchez.sergio.postsapp.network.repository.posts
 
 import com.google.gson.Gson
 import kotlinx.coroutines.runBlocking
@@ -15,7 +15,7 @@ import org.junit.runners.MethodSorters
 import org.mockito.junit.MockitoJUnitRunner
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import sanchez.sanchez.sergio.postsapp.persistence.api.posts.IPostsRepository
+import sanchez.sanchez.sergio.postsapp.persistence.network.exception.NetworkException
 import sanchez.sanchez.sergio.postsapp.persistence.network.exception.NetworkNoResultException
 import sanchez.sanchez.sergio.postsapp.persistence.network.mapper.CommentNetworkMapper
 import sanchez.sanchez.sergio.postsapp.persistence.network.mapper.PostNetworkMapper
@@ -48,6 +48,75 @@ class PostsNetworkRepositoryUTest {
                 val postId = 32321321321L
                 postsNetworkRepository.findById(postId)
             } catch (ex: Exception) {
+                assertThat(ex).isInstanceOf(NetworkNoResultException::class.java)
+            }
+
+        }
+    }
+
+    @Test
+    fun test_network_repository_002_post_can_have_a_empty_comment_list(){
+
+        runBlocking {
+
+            mockServer.enqueue(
+                MockResponse().apply {
+                    status = "HTTP/1.1 200 OK"
+                    setBody(getJson("json/network/repository/posts/test_network_repository_002_post_can_have_a_empty_comment_list_1.json"))
+                })
+
+            // No Comments Found for this post
+            mockServer.enqueue(
+                MockResponse().apply {
+                    status = "HTTP/1.1 404 Not Found"
+                })
+
+            mockServer.enqueue(
+                MockResponse().apply {
+                    status = "HTTP/1.1 200 OK"
+                    setBody(getJson("json/network/repository/posts/test_network_repository_002_post_can_have_a_empty_comment_list_2.json"))
+                })
+
+            val postId = 1L
+            val postDetail = postsNetworkRepository.findById(postId)
+
+            assertThat(postDetail.id).isEqualTo(postId)
+            assertThat(postDetail.title).isNotEmpty
+            assertThat(postDetail.body).isNotEmpty
+            assertThat(postDetail.commentList).isEmpty()
+            assertThat(postDetail.author.name).isNotEmpty
+
+        }
+    }
+
+    @Test
+    fun test_network_repository_003_post_must_be_have_an_author(){
+        runBlocking {
+
+            mockServer.enqueue(
+                MockResponse().apply {
+                    status = "HTTP/1.1 200 OK"
+                    setBody(getJson("json/network/repository/posts/test_network_repository_003_post_must_be_have_an_author.json"))
+                })
+
+            // No Comments Found for this post
+            mockServer.enqueue(
+                MockResponse().apply {
+                    status = "HTTP/1.1 404 Not Found"
+                })
+
+            // No Author for this post
+            mockServer.enqueue(
+                MockResponse().apply {
+                    status = "HTTP/1.1 404 Not Found"
+                })
+
+            try {
+                val postId = 1L
+                postsNetworkRepository.findById(postId)
+            } catch (ex: NetworkException) {
+
+                // The response is NetworkNoResultException because post must be have an author
                 assertThat(ex).isInstanceOf(NetworkNoResultException::class.java)
             }
 
@@ -98,12 +167,12 @@ class PostsNetworkRepositoryUTest {
                 .client(OkHttpClient.Builder().build())
                 .build()
 
-            val characterService = retrofit.create(IPostsService::class.java)
+            val postService = retrofit.create(IPostsService::class.java)
             val commentsService = retrofit.create(ICommentsService::class.java)
             val usersService = retrofit.create(IUsersService::class.java)
 
             postsNetworkRepository = PostsNetworkRepositoryImpl(
-                characterService,
+                postService,
                 commentsService,
                 usersService,
                 PostNetworkMapper(

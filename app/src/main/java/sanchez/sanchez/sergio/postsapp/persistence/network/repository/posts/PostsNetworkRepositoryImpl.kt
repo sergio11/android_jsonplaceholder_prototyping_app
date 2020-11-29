@@ -4,6 +4,7 @@ import sanchez.sanchez.sergio.postsapp.domain.models.Post
 import sanchez.sanchez.sergio.postsapp.domain.models.PostDetail
 import sanchez.sanchez.sergio.postsapp.persistence.network.exception.NetworkNoResultException
 import sanchez.sanchez.sergio.postsapp.persistence.network.mapper.PostNetworkMapper
+import sanchez.sanchez.sergio.postsapp.persistence.network.models.CommentDTO
 import sanchez.sanchez.sergio.postsapp.persistence.network.repository.core.SupportNetworkRepository
 import sanchez.sanchez.sergio.postsapp.persistence.network.service.ICommentsService
 import sanchez.sanchez.sergio.postsapp.persistence.network.service.IPostsService
@@ -12,7 +13,7 @@ import sanchez.sanchez.sergio.postsapp.persistence.network.service.IUsersService
 /**
  * Post Network Repository Impl
  */
-class PostsNetworkRepositoryImpl(
+open class PostsNetworkRepositoryImpl(
     private val postsService: IPostsService,
     private val commentService: ICommentsService,
     private val userService: IUsersService,
@@ -37,7 +38,12 @@ class PostsNetworkRepositoryImpl(
         // Get Post Detail
         val post = postsService.getPostById(id)
         // Get Comments for this post
-        val comments = commentService.getCommentsForPost(id)
+        val comments = try {
+            commentService.getCommentsForPost(id)
+        } catch (ex: Exception) {
+            // Post could not be a comments
+            emptyList()
+        }
         // Get the author of this post
         val author = userService.getUserDetail(post.userId)
         // transform to model

@@ -16,7 +16,6 @@ import org.mockito.junit.MockitoJUnitRunner
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import sanchez.sanchez.sergio.postsapp.persistence.network.service.ICommentsService
-import sanchez.sanchez.sergio.postsapp.persistence.network.service.IPostsService
 import java.io.File
 import java.net.InetAddress
 
@@ -35,7 +34,7 @@ class CommentsNetworkServiceUTest {
             mockServer.enqueue(
                 MockResponse().apply {
                     status = "HTTP/1.1 200 OK"
-                    setBody(getJson("json/network/comments/test_network_001_can_get_all_comments_for_a_post.json"))
+                    setBody(getJson("json/network/services/comments/test_network_001_can_get_all_comments_for_a_post.json"))
                 })
 
             val postId = 1L
@@ -55,7 +54,7 @@ class CommentsNetworkServiceUTest {
             mockServer.enqueue(
                 MockResponse().apply {
                     status = "HTTP/1.1 200 OK"
-                    setBody(getJson("json/network/comments/test_network_002_all_comments_has_a_valid_id.json"))
+                    setBody(getJson("json/network/services/comments/test_network_002_all_comments_has_a_valid_id.json"))
                 })
 
             val postId = 1L
@@ -75,7 +74,7 @@ class CommentsNetworkServiceUTest {
             mockServer.enqueue(
                 MockResponse().apply {
                     status = "HTTP/1.1 200 OK"
-                    setBody(getJson("json/network/comments/test_network_003_no_comment_has_a_empty_body.json"))
+                    setBody(getJson("json/network/services/comments/test_network_003_no_comment_has_a_empty_body.json"))
                 })
 
             val postId = 1L
@@ -92,7 +91,7 @@ class CommentsNetworkServiceUTest {
      */
 
     /**
-     * Helper function which will loadByDate JSON from
+     * Helper function which will load a JSON from
      * the path specified
      *
      * @param path : Path of JSON file

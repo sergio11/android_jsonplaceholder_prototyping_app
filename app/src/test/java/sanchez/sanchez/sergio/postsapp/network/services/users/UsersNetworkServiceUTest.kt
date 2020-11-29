@@ -35,7 +35,7 @@ class UsersNetworkServiceUTest {
             mockServer.enqueue(
                 MockResponse().apply {
                     status = "HTTP/1.1 200 OK"
-                    setBody(getJson("json/network/users/test_network_001_can_get_user_detail_by_id.json"))
+                    setBody(getJson("json/network/services/users/test_network_001_can_get_user_detail_by_id.json"))
                 })
 
             val userId = 1L
@@ -52,7 +52,7 @@ class UsersNetworkServiceUTest {
      */
 
     /**
-     * Helper function which will loadByDate JSON from
+     * Helper function which will load JSON from
      * the path specified
      *
      * @param path : Path of JSON file

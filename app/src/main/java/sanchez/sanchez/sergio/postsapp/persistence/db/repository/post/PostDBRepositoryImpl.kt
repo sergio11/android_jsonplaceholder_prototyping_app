@@ -12,7 +12,7 @@ import sanchez.sanchez.sergio.postsapp.persistence.db.room.mapper.PostDBMapper
 /**
  * Post DB Repository Impl
  */
-class PostDBRepositoryImpl(
+open class PostDBRepositoryImpl(
     private val postDAO: IPostDAO,
     private val postDbMapper: PostDBMapper
 ): IPostDBRepository{

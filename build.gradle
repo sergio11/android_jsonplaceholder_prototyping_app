@@ -12,14 +12,20 @@ buildscript {
     ext.timber = '4.7.1'
     ext.dagger_compiler_version = "2.16"
     ext.dagger_version = "2.28"
-    ext.mock_server_version = '3.7.0'
-    ext.assertj_core_version = '3.15.0'
-    ext.constraint_layout_version = '2.0.2'
+    ext.constraint_layout_version = '2.0.4'
     ext.material_components_version = '1.3.0-alpha03'
     ext.swipe_refresh_layout_version = '1.1.0'
     ext.lifecycle_extensions = "2.2.0"
     ext.safe_args_version = "2.1.0-alpha01"
     ext.navigation_version = "2.3.1"
+    ext.google_play_services_maps_version = "17.0.0"
+
+    // Test Libraries
+    ext.mock_server_version = '3.7.0'
+    ext.assertj_core_version = '3.15.0'
+    ext.mockito_kotlin_version = '2.2.0'
+    ext.robolectric_version = '4.3.1'
+    ext.junit_version = '4.13.1'
 
     repositories {
         google()
