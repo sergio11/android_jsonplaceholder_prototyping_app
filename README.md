@@ -6,6 +6,7 @@
 * Dependency injection through Dagger.
 * Asynchronous operations management with coroutines.
 * Using Material Design guidelines.
+* Using Jetpack Navigation to configure the navigation between screens.
 * Using local storage baseond on Jetpack Room Library to implement cache layer through repository pattern.
 * Testing with mockito-kotlin, assertj, junit, robolectric mock web server..
 
