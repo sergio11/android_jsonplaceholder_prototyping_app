@@ -1,4 +1,4 @@
-# Android Posts App
+# Android {JSON} Placeholder Prototyping App
 
 ## Main Goals
 
