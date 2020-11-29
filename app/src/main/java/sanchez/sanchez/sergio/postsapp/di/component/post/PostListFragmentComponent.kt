@@ -15,7 +15,7 @@ import sanchez.sanchez.sergio.postsapp.ui.features.posts.list.PostListFragment
 interface PostListFragmentComponent: FragmentComponent {
 
     /**
-     * Inject into Character Fragment
+     * Inject into Post List Fragment
      */
     fun inject(postListFragment: PostListFragment)
 }

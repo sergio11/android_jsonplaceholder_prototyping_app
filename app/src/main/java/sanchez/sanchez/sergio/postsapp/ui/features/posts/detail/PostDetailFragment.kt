@@ -156,8 +156,8 @@ class PostDetailFragment: SupportFragment<PostDetailViewModel>(PostDetailViewMod
 
             addMarker(MarkerOptions()
                 .position(authorLocation)
-                .title("title")
-                .snippet("snippet")
+                .title("location of ${author.name}")
+                .snippet(author.address)
                 .visible(true)
             ).apply {
                 showInfoWindow()
