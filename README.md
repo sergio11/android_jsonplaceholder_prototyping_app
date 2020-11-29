@@ -19,6 +19,15 @@
 
 <img src="./images/network_inspector_2.PNG" />
 
+* You can see with the Android Studio database inspector how the data is structured to persist locally.
+
+<img src="./images/database_inspector.PNG" />
+
+* Unit tests have been implemented to validate the logic implemented in the repository layer
+
+<img src="./images/test.PNG" />
+
+
 ## Screenshots
 
 <img width="250px" align="left" src="./images/app_gift.gif" />
